@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+import argparse
+import requests
+import rich
+import sys
+
+headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 OPR/73.0.3856.284'}
+
+class RequestError(Exception):
+    pass
+
+
+
+parser = argparse.ArgumentParser(
+    description='With this script, you can get anything from the internet!\nThis script the requests and rich librarys (requests to get the file and rich to use the color printing used for debug printing.)', \
+        epilog='Example: geturl.py -u https://i.imgur.com/iUnQpyh.png -o aimage.png -d')
+parser.add_argument('-u', '--url', help='File to get', type=str, required=True)
+parser.add_argument('-o', '--output', help='Output file', type=str, required=True)
+parser.add_argument('-d', '--debug', help='Debug mode', action='store_true', required=False)
+parser.add_argument('-v', '--version', action='version', version='geturl 1.7', help='Print the version and exit. (Dosen\'t get anything.)')
+parser.add_argument('-e', '--example', action='store_true', help='Show an example of how to use this command')
+args = parser.parse_args()
+
+
+def debug(mes):
+    if args.debug:
+        rich.print('[red][DEBUG]: [/][yellow]{0}[/]'.format(mes))
+
+def args_provided():
+    gg = []
+    if args.url:
+        gg.append('-u')
+    if args.output:
+        gg.append('-o')
+    if args.debug:
+        gg.append('-d')
+    return gg
+
+if not args.url.startswith('http'):
+    rich.print('[red]ERROR:[/][yellow]Invalid URL: input one that starts with http:// or https://[/]')
+elif '.' not in args.url:
+    rich.print('[red]ERROR:[/][yellow]Invalid URL: input one that actually has a file extention[/]')
+elif args.url == '':
+    rich.print('[red]ERROR:[/][yellow]Invalid URL: input one that actually exists[/]')
+debug('Arguments: {0}'.format(args_provided()))
+
+if args.example:
+    print('Example: geturl.py -u https://i.imgur.com/iUnQpyh.png -o aimage.png -d')
+    sys.exit(0)
+
+
+def get_image(url):
+    response = requests.get(url, headers=headers)
+    debug('Headers: {0}'.format(headers))
+    if response.status_code == 200:
+        debug('Sucessfully got it')
+        with open(args.output, 'wb') as f:
+            f.write(response.content)
+            debug('Wrote file {0}'.format(args.output))
+    else:
+        raise RequestError('{0}: {1}'.format(response.status_code, response.reason))
+
+
+def main():
+    if args.url != '':
+        get_image(args.url)
+    else:
+        print('No URL specified.')
+
+
+
+if __name__ == "__main__":
+    main()

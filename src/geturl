@@ -3,12 +3,9 @@ import argparse
 import requests
 import rich
 import sys
+from errors.RequestError import RequestError
 
 headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 OPR/73.0.3856.284'}
-
-class RequestError(Exception):
-    pass
-
 
 
 parser = argparse.ArgumentParser(

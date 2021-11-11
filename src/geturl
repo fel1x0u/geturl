@@ -5,9 +5,17 @@ import rich
 import sys
 from errors.RequestError import RequestError
 
+'''
+* Author: Felix Ou
+* License: GNU aGPLv3
+'''
+
+
+
+
+
+
 headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36 OPR/73.0.3856.284'}
-
-
 parser = argparse.ArgumentParser(
     description='With this script, you can get anything from the internet!\nThis script the requests and rich librarys (requests to get the file and rich to use the color printing used for debug printing.)', \
         epilog='Example: geturl.py -u https://i.imgur.com/iUnQpyh.png -o aimage.png -d')

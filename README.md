@@ -1,4 +1,4 @@
-# geturl
+### geturl
 
 
 Hi! This is geturl. I must address some things in this README before I begin.
@@ -11,22 +11,28 @@ Hi! This is geturl. I must address some things in this README before I begin.
 Now, we can begin!
 
 
-# Installation
+### Installation
 
-
+# Mac / Linux
 **Please make sure to have wget and curl installed on your system. This usually goes down to **`# apt install wget curl`** or **`# yum install wget curl`**.**
 
 
 Paste the following into your `bash` prompt:
 
 	
-	$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/fel1x0u/geturl/main/install.sh)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/fel1x0u/geturl/main/install/install.sh)"
 
 and bam, the software is installed!
 
 You can now execute it by doing `$ geturl` and the help screen will show up.
 
-# Using it
+# Windows
+Open Powershell as administrator, and paste in the following:
+
+
+	Invoke-WebRequest -Uri https://raw.githubusercontent.com/fel1x0u/geturl/main/install/install.ps1
+
+# Usage
 
 You get a file by executing:
 
@@ -42,9 +48,13 @@ The version is shown by executing:
 	$ geturl --version
 
 
-# Uninstallation
+### Uninstallation
 
+
+# Mac / Linux
 It's very easy, just a simple
 
 
-	$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent/fel1x0u/geturl/main/uninstall.sh)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent/fel1x0u/geturl/main/uninstall.sh)"
+
+

@@ -7,7 +7,7 @@ from errors.RequestError import RequestError
 
 '''
 * Author: Felix Ou
-* License: GNU aGPLv3
+* License: GNU GPLv3
 '''
 
 
@@ -22,9 +22,17 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-u', '--url', help='File to get', type=str, required=True)
 parser.add_argument('-o', '--output', help='Output file', type=str, required=True)
 parser.add_argument('-d', '--debug', help='Debug mode', action='store_true', required=False)
-parser.add_argument('-v', '--version', action='version', version='geturl 1.7', help='Print the version and exit. (Dosen\'t get anything.)')
+parser.add_argument('-v', '--version', action='version', version='2.0', help='Print the version and exit. (Dosen\'t get anything.)')
 parser.add_argument('-e', '--example', action='store_true', help='Show an example of how to use this command')
+parser.add_argument('--update', action='store_true', help='Update the script')
 args = parser.parse_args()
+
+if args.update:
+    print('Updating...')
+    import subprocess
+    subprocess.call(['wget', 'https://raw.githubusercontent.com/fel1x0u/geturl/master/scripts/update.sh', '-O', '/tmp/update.sh', '&&', 'bash', '/tmp/update.sh'])
+    geturl_latest_version = requests.get('https://raw.githubusercontent.com/fel1x0u/geturl/master/version').text
+    print('Updated geturl to {0}'.format(geturl_latest_version))
 
 
 def debug(mes):

@@ -58,3 +58,15 @@ It's very easy, just a simple
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent/fel1x0u/geturl/main/uninstall.sh)"
 
 
+
+
+
+### Updating
+
+# Mac / Linux
+
+
+Paste the following in your terminal / shell:
+
+
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/fel1x0u/geturl/master/scripts/update.sh)"

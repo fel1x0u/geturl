@@ -1,6 +1,6 @@
 #!/bin/bash
 
-temp_dir = "/tmp/geturl_temp"
+temp_dir="/tmp/geturl_temp"
 cd $temp_dir
 # String formatters (credit to Homebrew installation script)
 if [[ -t 1 ]]

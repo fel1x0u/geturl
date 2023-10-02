@@ -11,9 +11,9 @@ Hi! This is geturl. I must address some things in this README before I begin.
 Now, we can begin!
 
 
-### Installation
+# Installation
 
-# Mac / Linux
+## Mac / Linux
 **Please make sure to have wget and curl installed on your system. This usually goes down to **`# apt install wget curl`** or **`# yum install wget curl`**.**
 
 

@@ -26,6 +26,7 @@ curl https://raw.githubusercontent.com/fel1x0u/geturl/master/src/geturl -o "$tem
 curl https://raw.githubusercontent.com/fel1x0u/geturl/master/version -o "$temp_dir/version"
 if [ $($HOME/bin/geturl --version) -eq $(cat $temp_dir/version) ]; then
     echo "You have the latest version"
+    rm -rf $temp_dir
     exit 0
 else
     echo "Updating..."

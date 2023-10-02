@@ -14,7 +14,7 @@ Now, we can begin!
 # Installation
 
 ## Mac / Linux
-**Please make sure to have wget and curl installed on your system. This usually goes down to **`# apt install wget curl`** or **`# yum install wget curl`**.**
+**Please make sure to have curl installed on your system. This usually goes down to **`# apt install curl`** or **`# yum install curl`**.**
 
 
 Paste the following into your `bash` prompt:
